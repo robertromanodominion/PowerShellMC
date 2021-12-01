@@ -1,5 +1,5 @@
 Param(
-[string]$computername='savazuusscdc01')
+[Parameter(Mandatory=$true)][string]$computername)
 Get-CimInstance -ClassName win32_computersystem `
 	-ComputerName $computername |
-	fl numberofprocessors,totalphysicalmemory
+	Format-List numberofprocessors,totalphysicalmemory
